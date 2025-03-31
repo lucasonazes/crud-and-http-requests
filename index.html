@@ -31,40 +31,42 @@
         <form id="pensamento-form">
           <input type="hidden" id="pensamento-id" />
           <label for="pensamento-conteudo">Pensamento</label>
-          <textarea 
-            id="pensamento-conteudo" 
-            placeholder="Digite seu pensamento" 
-            required>
-          </textarea>
-          <label 
-            for="pensamento-autoria">
-              Autoria ou Fonte
-            </label>
+          <textarea id="pensamento-conteudo" placeholder="Digite seu pensamento" required></textarea>
+          <label for="pensamento-autoria">Autoria ou Fonte</label>
           <input 
             type="text" 
             id="pensamento-autoria" 
             placeholder="Insira a autoria ou fonte" 
-            required />
-          <div class="form-botoes">
-            <button 
-              type="submit" 
-              id="botao-salvar">
-              Salvar
-            </button>
-            <button 
-              type="button" 
-              id="botao-cancelar">
-              Cancelar
-            </button>
-          </div>
+            required /> 
+            <div class="form-botoes">
+              <button 
+                type="submit" 
+                id="botao-salvar">
+                Salvar
+              </button>
+              <button 
+                type="button" 
+                id="botao-cancelar">
+                Cancelar
+              </button>
+            </div>
         </form>
       </section>
       <span></span>
       <section id="lista-pensamentos-container">
         <h3>Meu Mural</h3>
+        <section id="busca-container">
+          <input type="text" id="campo-busca" placeholder="O que você procura?">
+          <img class="lupa" src="assets/images/lupa.png" alt="">
+        </section>
+        <div id="mensagem-vazia" class="mensagem-vazia">
+          <img src="assets/images/lista-vazia.png" alt="Nenhum pensamento disponível">
+          <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
+        </div>
         <ul id="lista-pensamentos"></ul>
       </section>
     </main>
-    <script type="module" src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

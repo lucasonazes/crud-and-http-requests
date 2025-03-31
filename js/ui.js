@@ -16,20 +16,21 @@ const ui = {
         document.getElementById('pensamento-form').reset();
     },
 
-    async renderThoughts() {
+    async renderThoughts(thoughts) {
         thoughtsList.innerHTML = '';
 
-        try {
-            const thoughts = await api.getThoughts();
+        if (thoughts) {
             thoughts.forEach(ui.addThoughtInTheList);
+            return;
+        }
+
+        try {
+            const allThoughts = await api.getThoughts();
+            allThoughts.forEach(ui.addThoughtInTheList);
         } catch (error) {
             console.error(error);
             alert('Erro ao renderizar os pensamentos');
         }
-    },
-
-    blankList() {
-        document.createElement
     },
 
     addThoughtInTheList(thought) {
@@ -76,8 +77,25 @@ const ui = {
         deleteIcon.alt = 'Excluir';
         deleteButton.appendChild(deleteIcon);
 
+        const favoriteButton = document.createElement('button');
+        favoriteButton.classList.add('botao-favorito');
+        favoriteButton.onclick = async () => {
+            try {
+                await api.updateFavorite(thought.id, !thought.favorite);
+            } catch (error) {
+                console.log(error);
+                alert('Erro ao atualizar pensamento');
+            }
+        }
+
+        const favoriteIcon = document.createElement('img');
+        favoriteIcon.src = thought.favorite ? 'assets/images/icone-favorito.png' : 'assets/images/icone-favorito_outline.png';
+        favoriteIcon.alt = 'Ícone de favorito';
+        favoriteButton.appendChild(favoriteIcon);
+
         const icons = document.createElement('div');
         icons.classList.add('icones');
+        icons.appendChild(favoriteButton);
         icons.appendChild(editButton);
         icons.appendChild(deleteButton);
 

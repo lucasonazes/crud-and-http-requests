@@ -46,7 +46,6 @@ main {
   background-color: #F4F4F4;
 }
 
-
 header {
   padding: 112px 240px 112px 360px;
   background: var(--Azul-Dark, #041832);
@@ -124,7 +123,36 @@ h2, h3 {
   width: 100%;
 }
 
-#pensamento-conteudo, #pensamento-autoria {
+#busca-container {
+  display: flex;
+  align-items: center;
+  margin-top: 56px;
+  width: 100%; 
+  max-width: 600px; 
+  margin: 56px auto 45px; 
+  padding: 0 16px; 
+}
+
+#campo-busca {
+  flex: 1; 
+  width: 572px;
+  height: 48px;
+  padding: 8px 16px;
+  border-radius: 32px;
+  border: 1px solid #144480;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+}
+
+.lupa {
+  margin-left: -40px;
+  width: 24px;
+  height: 24px;
+}
+
+#pensamento-conteudo, #pensamento-autoria, #pensamento-data {
   padding: 16px;
   border-radius: 8px;
   background: var(--Cinza-claro, #EDF0F4);
@@ -146,7 +174,7 @@ h2, h3 {
   line-height: normal;
 }
 
-#pensamento-conteudo::placeholder,  #pensamento-autoria::placeholder{
+#pensamento-conteudo::placeholder,  #pensamento-autoria::placeholder {
   color: var(--Cinza-medio, #8F8F8F);
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -206,8 +234,9 @@ h2, h3 {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   row-gap: 32px;
+  column-gap: 24px;
 }
 
 .li-pensamento {
@@ -234,7 +263,7 @@ h2, h3 {
   height: 50px;
 }
 
-.pensamento-conteudo, .pensamento-autoria {
+.pensamento-conteudo, .pensamento-autoria, .pensamento-data {
   margin-left: 20px; 
   color: var(--Cinza, #444);
   font-family: "Roboto Mono";
@@ -257,13 +286,19 @@ h2, h3 {
   font-weight: 600;
 }
 
+.pensamento-data {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: end;
+}
+
 .icones {
   position: absolute;
   bottom: 16px;
   right: 16px;
 }
 
-.botao-editar, .botao-excluir {
+.botao-editar, .botao-excluir, .botao-favorito {
   background: none;
   border: none;
   cursor: pointer;
@@ -271,14 +306,29 @@ h2, h3 {
   margin-left: 8px;
 }
 
-.botao-editar img, .botao-excluir img {
-  width: 20px;
-  height: 20px;
-}
-
 span {
   width: 180px;
   height: 1px;
   background: #041832;
   margin: 96px 0 48px 0;
+}
+
+.mensagem-vazia {
+  display: none;
+  text-align: center;
+  color: var(--Azul-Dark, #041832);
+  margin-top: 40px;
+}
+
+.mensagem-vazia img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.mensagem-vazia p {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 33px;
+  text-align: center;
 }
